@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猩狒狐苏2048game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 添加这些爱心元素 -->
+    <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 15%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 25%; animation-delay: 4s;"></div>
+    <div class="heart" style="left: 35%; animation-delay: 6s;"></div>
+    <div class="heart" style="left: 45%; animation-delay: 8s;"></div>
+    <div class="heart" style="left: 55%; animation-delay: 10s;"></div>
+    <div class="heart" style="left: 65%; animation-delay: 12s;"></div>
+    <div class="heart" style="left: 75%; animation-delay: 14s;"></div>
+    <div class="heart" style="left: 85%; animation-delay: 16s;"></div>
+    <div class="heart" style="left: 95%; animation-delay: 18s;"></div>
+
+    <!-- 原有的游戏容器 -->
+    <div id="game-container">
+        <header>
+            <h1>猩狒狐苏2048game 🦍🦊</h1>
+            <div class="score-container">
+                <div id="score">
+                    <div class="score-title">得分</div>
+                    <div class="score-value">0</div>
+                </div>
+                <div id="best-score">
+                    <div class="score-title">最佳</div>
+                    <div class="score-value">0</div>
+                </div>
+            </div>
+        </header>
+        <div class="game-intro">
+            <p>合并方块，得到<strong>2048</strong>！ 🙈🙉🙊🦊</p>
+            <a class="restart-button">新游戏 🔄</a>
+        </div>
+        <div id="game-board"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

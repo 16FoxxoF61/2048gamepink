@@ -1,0 +1,179 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffd1dc; /* 浅粉色背景 */
+    overflow: hidden;
+    position: relative;
+}
+
+/* 爱心泡泡动画 */
+@keyframes float {
+    0% { transform: translateY(100vh) scale(0); }
+    100% { transform: translateY(-10vh) scale(1); }
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: float 15s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: pink;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    left: -15px;
+}
+
+.heart::after {
+    top: -15px;
+}
+
+#game-container {
+    width: 500px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color: #ff69b4; /* 热粉色标题 */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-container {
+    display: flex;
+    gap: 5px;
+}
+
+#score, #best-score {
+    background-color: #bbada0;
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.score-title {
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.score-value {
+    font-size: 25px;
+}
+
+.game-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.game-intro p {
+    font-size: 18px;
+    color: #776e65;
+}
+
+.restart-button {
+    background-color: #8f7a66;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    background-color: #ffb6c1; /* 浅粉红色游戏板 */
+    border-radius: 6px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.tile {
+    background-color: #fff0f5; /* 淡雅的粉红色底色 */
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff69b4; /* 热粉色文字 */
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+}
+
+/* 更新方块颜色为粉色系 */
+.tile-2 { background-color: #ffe4e1; }
+.tile-4 { background-color: #ffc0cb; }
+.tile-8 { background-color: #ffb6c1; color: #fff; }
+.tile-16 { background-color: #ff69b4; color: #fff; }
+.tile-32 { background-color: #ff1493; color: #fff; }
+.tile-64 { background-color: #ff00ff; color: #fff; }
+.tile-128 { background-color: #da70d6; color: #fff; font-size: 26px; }
+.tile-256 { background-color: #ba55d3; color: #fff; font-size: 26px; }
+.tile-512 { background-color: #9932cc; color: #fff; font-size: 26px; }
+.tile-1024 { background-color: #8b008b; color: #fff; font-size: 20px; }
+.tile-2048 { background-color: #4b0082; color: #fff; font-size: 20px; }
+
+/* 添加到 style.css 文件的末尾 */
+@media (max-width: 500px) {
+    #game-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .tile {
+        font-size: 20px;
+    }
+
+    .tile-128, .tile-256, .tile-512 {
+        font-size: 18px;
+    }
+
+    .tile-1024, .tile-2048 {
+        font-size: 16px;
+    }
+}
